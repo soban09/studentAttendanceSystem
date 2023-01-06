@@ -40,7 +40,7 @@ const TableRow = ({ student, recordUpdatedHandler, inputDate }) => {
                 <td>{student.checkinTime}</td>
                 <td>{student.checkoutTime}</td>
                 <td>
-                    {student.checkoutTime.length === 0 ? <button onClick={checkout}>checkout</button> : <p>-</p>}
+                    {student.checkoutTime.length === 0 ? <button className='checkoutBtn' onClick={checkout}>checkout</button> : <p>-</p>}
                 </td>
             </tr>
         </tbody>

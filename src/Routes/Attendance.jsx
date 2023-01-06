@@ -19,9 +19,9 @@ const Attendance = () => {
 
     return (
         <div>
-            <Header/>
+            <Header openModal={ModalHandler}/>
             {showModal && <Modal setRefresh={setRefreshHandler} closeModal={ModalHandler} />}
-            <PresentList openModal={ModalHandler} refreshList={refreshList}/>
+            <PresentList  refreshList={refreshList}/>
         </div>
     )
     

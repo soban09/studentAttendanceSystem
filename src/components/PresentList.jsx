@@ -1,6 +1,5 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { BsPlusLg } from "react-icons/bs";
 import TableRow from './TableRow'
 
 const PresentList = ({ openModal, refreshList }) => {
@@ -63,19 +62,18 @@ const PresentList = ({ openModal, refreshList }) => {
         // console.log(d);
     }
 
-    const openModalHandler = () => {
-        openModal(true)
-    }
+    
 
     return (
         <div className='present_list'>
             <div className="present_list_header">
-                <h3 className='heading'>Add a student</h3>
-                <BsPlusLg onClick={openModalHandler} className='add_icon' />
                 {/* <button onClick={openModalHandler}>Add</button>  */}
-                <br></br>
-                <h3 className='heading'>{inputDate}</h3>
-                <label htmlFor='date'>Select date</label>
+                {/* <h3 className='heading'>{inputDate}</h3> */}
+                <div className='present_list_inforBar'>
+                    <p>Attendance Record</p>
+                    <p>{inputDate}</p>
+                    <p>No of students Present : {presentList.length}</p>
+                </div>
                 <input onChange={dateChangeHandler} id='date' type='date' />
             </div>
 

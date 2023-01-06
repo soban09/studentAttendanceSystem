@@ -1,8 +1,9 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import TableRow from '../components/TableRow'
+import { BsPlusLg } from "react-icons/bs";
+import TableRow from './TableRow'
 
-const PresentList = () => {
+const PresentList = ({ openModal, refreshList }) => {
 
     let date = new Date()
     const todayDate = date.toISOString().split('T')[0]
@@ -49,7 +50,7 @@ const PresentList = () => {
         }
 
         fetchPresentStudents()
-    }, [recordUpdated])
+    }, [recordUpdated, refreshList])
 
     const recordUpdatedHandler = () => {
         console.log('nice');
@@ -62,14 +63,32 @@ const PresentList = () => {
         // console.log(d);
     }
 
+    const openModalHandler = () => {
+        openModal(true)
+    }
+
     return (
-        <div>
-            <h3>Fetch all students</h3>
-            <label htmlFor='date'>Select date</label>
-            <input onChange={dateChangeHandler} id='date' type='date'/>
-            {loading && <p>Loading...</p>}
-            {!loading && presentList.length===0 && <p>Nothing to show here...</p>}
-            {!loading && presentList.length>0 && <table>
+        <div className='present_list'>
+            <div className="present_list_header">
+                <h3 className='heading'>Add a student</h3>
+                <BsPlusLg onClick={openModalHandler} className='add_icon' />
+                {/* <button onClick={openModalHandler}>Add</button>  */}
+                <br></br>
+                <h3 className='heading'>{inputDate}</h3>
+                <label htmlFor='date'>Select date</label>
+                <input onChange={dateChangeHandler} id='date' type='date' />
+            </div>
+
+            <br></br>
+
+            {loading && <p className='loading'>Loading...</p>}
+
+            {!loading && presentList.length === 0 && 
+            <div className='empty-msg-box'>
+                <h3>Nothing to show here :)</h3>
+            </div>}
+
+            {!loading && presentList.length > 0 && <div className='present_list_body'><table>
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -81,10 +100,10 @@ const PresentList = () => {
                 </thead>
                 {presentList.map((student, idx) => {
                     return (
-                        <TableRow key={idx} student={student} recordUpdatedHandler={recordUpdatedHandler} inputDate={inputDate}/>
+                        <TableRow key={idx} student={student} recordUpdatedHandler={recordUpdatedHandler} inputDate={inputDate} />
                     )
                 })}
-            </table>}
+            </table></div>}
         </div>
     )
 }

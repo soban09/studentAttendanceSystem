@@ -9,11 +9,6 @@ const Home = () => {
           Mark your attendance
         </div>
       </Link>
-      <Link to='/presentlist'>
-        <div>
-          check who all are present today
-        </div>
-      </Link>
     </div>
   )
 }

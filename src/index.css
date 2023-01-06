@@ -1,3 +1,185 @@
-table, th, td {
+/* table, th, td {
     border: 1px solid black;
+} */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Inter:wght@300&family=Lato:wght@900&family=Nuosu+SIL&family=Roboto&family=Spline+Sans+Mono:wght@300&display=swap');
+
+
+/* ========= Present List ========== */
+.present_list{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
 }
+
+.present_list_header{
+    margin-top: 1rem;
+}
+
+.present_list_body{
+    max-height: 60vh;
+    overflow-y: auto;
+    box-shadow: 0px 0px 1.5px 1.5px #eee6e6;
+    border-radius: 1rem;
+    padding: 0.5rem;
+}
+
+/* ========= table ============ */
+table{
+    align-items : center;
+    font-family: 'Nuosu SIL', serif;
+    width: 50vw;
+    font-size: 1.2rem;
+    border-collapse: collapse;
+}
+
+th{
+    justify-content: left;
+}
+
+td{
+    height: 2rem;
+    padding: 0;
+}
+
+.empty-msg-box{
+    color:#B8B8B8;
+    font-family: 'Spline Sans Mono', monospace;
+    font-size: 0.9rem;
+}
+
+.loading{
+    color:#B8B8B8;
+    font-family: 'Spline Sans Mono', monospace;
+}
+
+/* ========= header ======== */
+
+.header{
+    padding: 0 1rem;
+    border-bottom: 2px solid #eee6e6;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header h1{
+    font-family: 'Lato', sans-serif;
+    display: inline-block;
+}
+
+
+.heading{
+    font-family: 'Spline Sans Mono', monospace;
+    font-size: 2rem;
+    display: inline-block;
+    margin: 0.5rem;
+}
+
+.add_icon{
+    position: relative;
+    top:8px;
+    width: 1.4rem;
+    height: 1.4rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 1.3rem;
+}
+
+.add_icon:hover{
+    background-color: #f3ebeb;
+}
+
+
+/* ========= Modal ========= */
+
+.backDrop{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background: rgba(0,0,0,0.75);
+    /* overflow: hidden; */
+}
+
+.modal{
+    position: fixed;
+    top: 25vh;
+    left: 35%;
+    z-index: 100;
+    padding: 2rem;
+    width: 26%;
+    height: 17rem;
+    border-radius: 1rem;
+    opacity: 1;
+    background-color: #fff;
+    box-shadow: 0px 0px 1.5px 1.5px #eee6e6;
+}
+
+.modal label{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+}
+
+.modal input[type=text], select{
+    outline: none;
+    margin-bottom: 2rem;
+}
+
+.modal input[type=text]{
+    border: none;
+    padding: 7px;
+    width: 85%;
+    color: rgb(92, 90, 90);
+    font-family: 'Roboto', sans-serif;
+    background-color: #dfdfdf;
+    border-radius: 10px;
+    font-size: 1.1rem;
+}
+
+.modal-icon{
+    font-size: 1.3rem;
+}
+
+.modal-btn{
+    width: 5rem;
+    height: 2.2rem;
+    cursor: pointer;
+    background-color: rgb(53, 52, 52);
+    color: #fff;
+    border-radius: 10px;
+    font-size: 1.4rem;
+}
+
+.modal-btn:hover{
+    background-color: black;
+    transform: scale(1.1);
+}
+
+
+/* ========= Scroll Bar ======== */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #B8B8B8; 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #888888; 
+  }

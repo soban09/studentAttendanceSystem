@@ -1,12 +1,12 @@
 import React from 'react'
 
-const TableRow = ({ student, recordUpdatedHandler }) => {
+const TableRow = ({ student, recordUpdatedHandler, inputDate }) => {
 
     const checkout = async () => {
         console.log('hey');
 
-        const d = new Date()
-        const todayTime = `${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`
+        let date = new Date()
+        const todayTime = date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
 
         const newStudentDetails = {
             ...student,
@@ -14,7 +14,7 @@ const TableRow = ({ student, recordUpdatedHandler }) => {
         }
 
         try{
-            const response = await fetch(`https://student-attendance-b3eae-default-rtdb.firebaseio.com/202305/${student.key}.json`, {
+            const response = await fetch(`https://student-attendance-b3eae-default-rtdb.firebaseio.com/${inputDate}/${student.key}.json`, {
                 method : 'PUT',
                 body : JSON.stringify(newStudentDetails)
             })
@@ -42,7 +42,6 @@ const TableRow = ({ student, recordUpdatedHandler }) => {
                 <td>
                     {student.checkoutTime.length === 0 ? <button onClick={checkout}>checkout</button> : <p>-</p>}
                 </td>
-                <td>{student.key}</td>
             </tr>
         </tbody>
     )

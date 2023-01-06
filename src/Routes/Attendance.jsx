@@ -19,9 +19,13 @@ const Attendance = () => {
 
         setLoading(true)
 
-        const d = new Date()
-        const todayDate = `${d.getFullYear()}${d.getMonth()}${d.getDate()}`
-        const todayTime = `${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`
+        // const d = new Date()
+        // const todayDate = `${d.getFullYear()}${d.getMonth()}${d.getDate()}`
+        // const todayTime = `${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`
+
+        let date = new Date()
+        const todayDate = date.toISOString().split('T')[0]
+        const todayTime = date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
         // console.log(todayDate);
 
         const studentDetails = {

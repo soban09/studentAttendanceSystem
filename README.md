@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Deployed at : 
 
-Netlify : [http://localhost:3000](http://localhost:3000)
+Netlify : [https://studentattendancesystem.netlify.app/attendance](https://studentattendancesystem.netlify.app/attendance)
 
 ## Functionalities : 
 

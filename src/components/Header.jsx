@@ -13,6 +13,7 @@ const Header = ({ openModal }) => {
       <div>
         <BsPlusLg onClick={openModalHandler} className='add_icon' />
         <h3>Add Student</h3>
+        {/* <button>Add Student</button> */}
       </div>
     </div>
   )

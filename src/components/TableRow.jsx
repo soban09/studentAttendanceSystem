@@ -10,16 +10,16 @@ const TableRow = ({ student, recordUpdatedHandler, inputDate }) => {
 
         const newStudentDetails = {
             ...student,
-            checkoutTime : todayTime
+            checkoutTime: todayTime
         }
 
-        try{
+        try {
             const response = await fetch(`https://student-attendance-b3eae-default-rtdb.firebaseio.com/${inputDate}/${student.key}.json`, {
-                method : 'PUT',
-                body : JSON.stringify(newStudentDetails)
+                method: 'PUT',
+                body: JSON.stringify(newStudentDetails)
             })
 
-            if(!response.ok){
+            if (!response.ok) {
                 throw new Error('oops cant fetch')
             }
 
@@ -27,23 +27,21 @@ const TableRow = ({ student, recordUpdatedHandler, inputDate }) => {
             // console.log(data);
             recordUpdatedHandler()
         }
-        catch(err){
+        catch (err) {
             console.log(err);
         }
     }
 
     return (
-        <tbody>
-            <tr>
-                <td>{student.Name}</td>
-                <td>{student.RollNo}</td>
-                <td>{student.checkinTime}</td>
-                <td>{student.checkoutTime}</td>
-                <td>
-                    {student.checkoutTime.length === 0 ? <button className='checkoutBtn' onClick={checkout}>checkout</button> : <p>-</p>}
-                </td>
-            </tr>
-        </tbody>
+        <tr>
+            <td>{student.Name}</td>
+            <td>{student.RollNo}</td>
+            <td>{student.checkinTime}</td>
+            {student.checkoutTime.length===0 ? <td>in class</td> : <td>{student.checkoutTime}</td>}
+            <td>
+                {student.checkoutTime.length === 0 ? <button className='checkoutBtn' onClick={checkout}>checkout</button> : <p>-</p>}
+            </td>
+        </tr>
     )
 }
 

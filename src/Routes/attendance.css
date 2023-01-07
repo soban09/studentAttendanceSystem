@@ -1,108 +1,131 @@
-/* table, th, td {
-    border: 1px solid black;
-} */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Inter:wght@300&family=Lato:wght@900&family=Nuosu+SIL&family=Roboto&family=Spline+Sans+Mono:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@900&display=swap');
 
+body{
+    margin: 0;
+}
+
+#attendance{
+    background-image: linear-gradient(to bottom right, #0851aa, white);
+    background-repeat: no-repeat;
+    height: 100vh;
+}
 
 /* ========= Present List ========== */
-.present_list{
+.present_list {
     width: 100%;
-    height: 100%;
+    margin: 0;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.present_list_header{
+.present_list_header {
     margin-top: 2rem;
     width: 50vw;
     display: flex;
     justify-content: space-between;
 }
 
-.present_list_inforBar{
-    font-family: 'Spline Sans Mono', monospace;
+.present_list_inforBar {
+    padding: 10px;
+    font-family: 'Roboto Slab', serif;
+    background-color: #fff;
     box-shadow: 0px 0px 1.5px 1.5px #eee6e6;
+    border-radius: 1rem;
     font-weight: 400;
 }
 
-.present_list_inforBar p{
+.present_list_inforBar p {
     margin: 0;
-}   
+}
 
-.present_list_body{
+.present_list_body {
     max-height: 60vh;
     overflow-y: auto;
-    box-shadow: 0px 0px 1.5px 1.5px #eee6e6;
     border-radius: 1rem;
     padding: 0.5rem;
 }
 
 /* ========= table ============ */
-table{
-    align-items : center;
-    font-family: 'Nuosu SIL', serif;
-    width: 50vw;
-    font-size: 1.2rem;
+
+table {
+    font-family: arial, sans-serif;
     border-collapse: collapse;
+    border-radius: 1rem;
+    overflow: hidden;
+    /* width: 100%; */
+    width: 50vw;
 }
 
-th{
-    justify-content: left;
-    border : 2px solid #d0cfcf
+td,
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
 }
 
-td{
-    height: 2rem;
-    padding: 0;
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+tr:nth-child(odd) {
+    background-color: #fff;
 }
 
-.empty-msg-box{
-    color:#B8B8B8;
+.empty-msg-box {
+    color: #B8B8B8;
     font-family: 'Spline Sans Mono', monospace;
     font-size: 0.9rem;
 }
 
-.checkoutBtn{
+.checkoutBtn {
     width: 5rem;
     height: 2rem;
     cursor: pointer;
     background-color: rgb(53, 52, 52);
     color: #fff;
     border-radius: 10px;
-    /* font-size: 1.4rem; */
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
 }
 
-.loading{
-    color:#B8B8B8;
+.checkoutBtn:hover {
+    background-color: black;
+    transform: scale(1.1);
+}
+
+.loading {
+    color: #B8B8B8;
     font-family: 'Spline Sans Mono', monospace;
 }
 
 /* ========= header ======== */
 
-.header{
+.header {
     padding: 0 1rem;
     border-bottom: 2px solid #eee6e6;
+    background : white;
     display: flex;
     justify-content: space-between;
 }
 
-.header h1{
+.header h1 {
     font-family: 'Lato', sans-serif;
     display: inline-block;
 }
 
 
-.heading{
+.heading {
     font-family: 'Spline Sans Mono', monospace;
     font-size: 2rem;
     display: inline-block;
     margin: 0.5rem;
 }
 
-.add_icon{
-    position : relative;
-    top : 1.4rem;
+.add_icon {
+    position: relative;
+    top: 1.4rem;
     width: 1.4rem;
     height: 1.4rem;
     padding: 0.5rem;
@@ -111,25 +134,25 @@ td{
     font-size: 1.3rem;
 }
 
-.add_icon:hover{
+.add_icon:hover {
     background-color: #f3ebeb;
 }
 
 
 /* ========= Modal ========= */
 
-.backDrop{
+.backDrop {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 10;
-    background: rgba(0,0,0,0.75);
+    background: rgba(0, 0, 0, 0.75);
     /* overflow: hidden; */
 }
 
-.modal{
+.modal {
     position: fixed;
     top: 25vh;
     left: 35%;
@@ -143,17 +166,18 @@ td{
     box-shadow: 0px 0px 1.5px 1.5px #eee6e6;
 }
 
-.modal label{
+.modal label {
     font-family: 'Cormorant Garamond', serif;
     font-size: 2rem;
 }
 
-.modal input[type=text], select{
+.modal input[type=text],
+select {
     outline: none;
     margin-bottom: 2rem;
 }
 
-.modal input[type=text]{
+.modal input[type=text] {
     border: none;
     padding: 7px;
     width: 85%;
@@ -164,11 +188,11 @@ td{
     font-size: 1.1rem;
 }
 
-.modal-icon{
+.modal-icon {
     font-size: 1.3rem;
 }
 
-.modal-btn{
+.modal-btn {
     width: 5rem;
     height: 2.2rem;
     cursor: pointer;
@@ -178,38 +202,39 @@ td{
     font-size: 1.4rem;
 }
 
-.modal-btn:hover{
+.modal-btn:hover {
     background-color: black;
     transform: scale(1.1);
 }
 
 /* ========== input type date ========== */
 
-input[type=date]{
+input[type=date] {
     height: 1rem;
     position: relative;
     top: 3rem;
+    cursor: pointer;
 }
 
 /* ========= Scroll Bar ======== */
 /* width */
 ::-webkit-scrollbar {
     width: 10px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey; 
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
     border-radius: 10px;
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #B8B8B8; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #B8B8B8;
     border-radius: 10px;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #888888; 
-  }
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #888888;
+}

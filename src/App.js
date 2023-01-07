@@ -2,7 +2,6 @@ import React from 'react'
 import {Routes, Route} from 'react-router-dom'
 import Attendance from './Routes/Attendance'
 import Home from './Routes/Home'
-import './index.css'
 
 const App = () => {
 

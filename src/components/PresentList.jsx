@@ -10,6 +10,7 @@ const PresentList = ({ openModal, refreshList }) => {
     const [presentList, setPresentList] = useState([])
     const [recordUpdated, setRecordUpdated] = useState(false)
     const [inputDate, setInputDate] = useState(todayDate)
+    const [longdate, setLongDate] = useState(new Date().toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"}) )
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
@@ -59,6 +60,10 @@ const PresentList = ({ openModal, refreshList }) => {
     const dateChangeHandler = (event) => {
         setInputDate(event.target.value)
         setRecordUpdated(!recordUpdated)
+
+        const d = new Date(event.target.value)
+        const longDate = d.toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"})
+        setLongDate(longDate)
         // console.log(d);
     }
 
@@ -71,7 +76,7 @@ const PresentList = ({ openModal, refreshList }) => {
                 {/* <h3 className='heading'>{inputDate}</h3> */}
                 <div className='present_list_inforBar'>
                     <p>Attendance Record</p>
-                    <p>{inputDate}</p>
+                    <p>{longdate}</p>
                     <p>No of students Present : {presentList.length}</p>
                 </div>
                 <input onChange={dateChangeHandler} id='date' type='date' />
@@ -96,11 +101,14 @@ const PresentList = ({ openModal, refreshList }) => {
                         <th>checkout</th>
                     </tr>
                 </thead>
+
+                <tbody>
                 {presentList.map((student, idx) => {
                     return (
                         <TableRow key={idx} student={student} recordUpdatedHandler={recordUpdatedHandler} inputDate={inputDate} />
                     )
                 })}
+                </tbody>
             </table></div>}
         </div>
     )
